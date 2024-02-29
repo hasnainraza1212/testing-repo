@@ -3,6 +3,9 @@ import { posts } from "./posts.js"
 const app = express()
 const PORT = process.env.PORT
 
+app.get("/", (req, res)=>{
+    res.status(200).send({message:"hello from server"})
+})
 app.get("/api/v1/", (req, res)=>{
     res.status(200).send(posts)
 })
