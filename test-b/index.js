@@ -1,8 +1,14 @@
 import express from "express"
+import cors from "cors"
 import { posts } from "./posts.js"
 const app = express()
 const PORT = process.env.PORT
-
+app.use(cors({
+"origin": "https://nanu-test.netlify.app",
+  "methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
+  "preflightContinue": false,
+  "optionsSuccessStatus": 204
+}))
 app.get("/", (req, res)=>{
     res.status(200).send({message:"hello from server"})
 })
