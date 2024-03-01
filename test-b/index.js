@@ -9,10 +9,22 @@ app.use(cors({
   "preflightContinue": false,
   "optionsSuccessStatus": 204
 }))
+const handleSession = (req, res, next)=>{
+    if  (req.session.id){
+      return  next()
+    }
+    else{
+        res.status(401).send({message:"Unauthorized", success:false})
+    }
+}
+app.use(handleSession)
 app.get("/", (req, res)=>{
     res.status(200).send({message:"hello from server"})
 })
 app.get("/api/v1/", (req, res)=>{
+    res.status(200).send(posts)
+})
+app.get("/api/v1/login", (req, res)=>{
     res.status(200).send(posts)
 })
 app.use(express.json())
