@@ -7,6 +7,7 @@ import About from './pages/About/About'
 import Contact from './pages/Contact/Contact'
 import Services from './pages/Services/Services'
 import Layout from './pages/Layout/Layout'
+import Login from './pages/Login/Login'
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
    <Routes>
    <Route path="/" element={<Layout/>}>
     <Route index element={<Home/>}/>
+    <Route path="login" element={<Login/>}/>
     <Route path="about" element={<About/>}/>
     <Route path="contact" element={<Contact/>}/>
     <Route path="services" element={<Services/>}/>
