@@ -7,6 +7,7 @@ const Layout = () => {
   useEffect(()=>{
     (async()=>{
     const res=await axios.get("/api/v1")
+    console.log(data)
       setData(res)
     })()
   },[])
