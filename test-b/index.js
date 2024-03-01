@@ -10,7 +10,7 @@ app.use(cors({
   "optionsSuccessStatus": 204
 }))
 const handleSession = (req, res, next)=>{
-    if  (req.session.id){
+    if  (req.session?.id){
       return  next()
     }
     else{
