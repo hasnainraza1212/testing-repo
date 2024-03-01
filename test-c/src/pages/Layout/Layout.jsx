@@ -1,14 +1,14 @@
-import React, { useEffect } from 'react'
-import { Outlet } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import { Outlet, useLocation } from 'react-router-dom'
 import Header from '../../Components/Header/Header'
 import axios from 'axios';
 const Layout = () => {
+  const [data, setData] = useState([])
   useEffect(()=>{
     (async()=>{
     const res=await axios.get("/api/v1")
-    console.log(res)
+      setData(res)
     })()
-    console.log("nani")
   },[])
   return (
     <div className="layout">
