@@ -4,7 +4,7 @@ import { posts } from "./posts.js"
 const app = express()
 const PORT = process.env.PORT
 app.use(cors({
-"origin": "https://nanu-test.netlify.app/",
+"origin": "https://nanu-test.netlify.app",
   "methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
   "preflightContinue": false,
   "optionsSuccessStatus": 204
