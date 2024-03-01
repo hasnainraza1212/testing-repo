@@ -3,13 +3,10 @@ import { Outlet, useLocation } from 'react-router-dom'
 import Header from '../../Components/Header/Header'
 import axios from 'axios';
 const Layout = () => {
-  const [data, setData] = useState([])
   useEffect(()=>{
     (async()=>{
     const res= await axios.get("https://prod-test-hr.cyclic.app/api/v1")
-    console.log(res)
-      console.log("hasnain")
-      setData(res)
+    console.log(res.data)
     })()
   },[])
   return (
