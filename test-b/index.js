@@ -2,32 +2,20 @@ import express from "express"
 import cors from "cors"
 import { posts } from "./posts.js"
 import session from 'express-session';
-// import MemoryStore from 'memorystore';
 const app = express()
 const PORT = process.env.PORT
 app.use(cors({
 "origin": ["https://nanu-test.netlify.app","http://localhost:5173"],
   "methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
   "preflightContinue": false,
-  "optionsSuccessStatus": 204
+  "optionsSuccessStatus": 204,
+  credentials:true
 }))
-// const handleSession = (req, res, next)=>{
-//     if  (req.session?.id){
-//       return  next()
-//     }
-//     else{
-//         res.status(401).send({message:"Unauthorized", success:false})
-//     }
-// }
-// app.use(handleSession)
-// const MemoryStoreInstance = MemoryStore(session);
+
 app.use(session({
   secret: 'your-secret-key',
   resave: false,
-  saveUninitialized: true,
-  // store: new MemoryStoreInstance({
-  //   checkPeriod: 86400000 // prune expired entries every 24h
-  // })
+  saveUninitialized: false,
 }));
 
 // Define routes
