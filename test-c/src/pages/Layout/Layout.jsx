@@ -6,7 +6,7 @@ const Layout = () => {
   const [data, setData] = useState([])
   useEffect(()=>{
     (async()=>{
-    const res=await axios.get("/api/v1")
+    const res= await axios.get("https://prod-test-hr.cyclic.app/api/v1")
     console.log(res)
       console.log("hasnain")
       setData(res)
