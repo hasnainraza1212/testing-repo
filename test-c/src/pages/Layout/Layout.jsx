@@ -8,6 +8,7 @@ const Layout = () => {
     (async()=>{
     const res=await axios.get("/api/v1")
     console.log(res)
+      console.log("hasnain")
       setData(res)
     })()
   },[])
