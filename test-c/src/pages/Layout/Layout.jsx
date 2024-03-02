@@ -5,8 +5,8 @@ import axios from 'axios';
 const Layout = () => {
   useEffect(()=>{
     (async()=>{
-    const res= await axios.get("https://prod-test-hr.cyclic.app/", {withCredentials: true})
-    // const res= await axios.get("http://localhost:3000/", {withCredentials: true})
+    // const res= await axios.get("https://prod-test-hr.cyclic.app/", {withCredentials: true})
+    const res= await axios.get("http://localhost:3000/", {withCredentials: true})
     console.log(res.data)
     })()
   },[])
