@@ -19,8 +19,10 @@ app.use(
     secret: "your-secret-key",
     resave: false,
     saveUninitialized: false,
-    sameSite: "none",
-    secure: true,
+    cookie: {
+      sameSite: "none", // Set SameSite attribute to None
+      secure: true,
+    },
   })
 );
 
