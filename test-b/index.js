@@ -16,6 +16,7 @@ app.use(session({
   secret: 'your-secret-key',
   resave: false,
   saveUninitialized: false,
+  sameSite: 'None'
 }));
 
 // Define routes
@@ -36,8 +37,13 @@ app.get('/', (req, res) => {
 app.get("/api/v1/", (req, res)=>{
     res.status(200).send(posts)
 })
-app.get("/api/v1/login", (req, res)=>{
-    res.status(200).send(posts)
+app.post("/api/v1/login", (req, res)=>{
+  if(req.session.auth){
+     return res.status(200).send(posts)
+  }else{
+    req.session.auth=true
+    return res.status(200).send(posts)
+  }
 })
 app.use(express.json())
 app.listen(PORT, ()=>{
