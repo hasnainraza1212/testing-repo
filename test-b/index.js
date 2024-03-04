@@ -18,7 +18,7 @@ app.use(
   session({
     secret: "your-secret-key",
     resave: false,
-    saveUninitialized: false,
+    saveUninitialized: true,
     cookie: {
       sameSite: "none", // Set SameSite attribute to None
       secure: true,
@@ -28,6 +28,7 @@ app.use(
 
 // Define routes
 app.get("/", (req, res) => {
+  console.log("test")
   if (req.session.views) {
     req.session.views++;
     res.send(`You visited this page ${req.session.views} times.`);
