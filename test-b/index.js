@@ -22,6 +22,7 @@ app.use(
     cookie: {
       sameSite: "none", // Set SameSite attribute to None
       secure: true,
+      expires: new Date(Date.now() + 120000)
     },
   })
 );
